@@ -53,11 +53,11 @@ class Debts extends \yii\db\ActiveRecord
         return [
             'debt_id' => Yii::t('app', 'Debt ID'),
             'user_id' => Yii::t('app', 'User ID'),
-            'contact_id' => Yii::t('app', 'Contact ID'),
+            'contact_id' => Yii::t('app', 'Contact'),
             'debt_amount' => Yii::t('app', 'Debt Amount'),
             'debt_date' => Yii::t('app', 'Debt Date'),
             'debt_description' => Yii::t('app', 'Debt Description'),
-            'debt_tag_id' => Yii::t('app', 'Debt Tag ID'),
+            'debt_tag_id' => Yii::t('app', 'Tag'),
         ];
     }
 
@@ -84,4 +84,5 @@ class Debts extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
 }

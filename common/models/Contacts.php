@@ -82,4 +82,8 @@ class Contacts extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Demands::className(), ['contact_id' => 'contact_id']);
     }
+
+    public function getDisplayName(){
+        return $this->contact_firstname . " " . $this->contact_lastname;
+    }
 }
