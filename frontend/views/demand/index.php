@@ -51,4 +51,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+
+    <br/>
+    <h3><?= Yii::t('app', 'Total') ?> : </h3>
+    <h4 class="text-success"><?= $total ?> <?= Yii::t('app', '(Toman)') ?></h4>
 </div>

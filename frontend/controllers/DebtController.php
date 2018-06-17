@@ -49,9 +49,16 @@ class DebtController extends Controller
         $searchModel = new SearchDebts();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $debtModels = Debts::find()->select(['debt_amount'])->where(['user_id' => Yii::$app->user->identity->id])->all();
+        $debt = 0;
+        foreach($debtModels as $debtModel){
+            $debt += $debtModel->debt_amount;
+        }
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'total' => $debt,
         ]);
     }
 

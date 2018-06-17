@@ -49,9 +49,16 @@ class DemandController extends Controller
         $searchModel = new SearchDemands();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $demandModels = Demands::find()->select(['demand_amount'])->where(['user_id' => Yii::$app->user->identity->id])->all();
+        $demand = 0;
+        foreach($demandModels as $demandModel){
+            $demand += $demandModel->demand_amount;
+        }
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'total' => $demand,
         ]);
     }
 

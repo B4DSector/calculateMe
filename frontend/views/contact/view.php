@@ -91,4 +91,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
+
+    <br/>
+    <h3><?= Yii::t('app', 'Total') ?> : </h3>
+
+    <?php
+        if($total < 0){
+            $class = 'text-danger';
+        }else{
+            $class = 'text-success';
+        }
+    ?>
+
+    <h4 class="<?= $class ?>"><?= $total ?> <?= Yii::t('app', '(Toman)') ?></h4>
 </div>

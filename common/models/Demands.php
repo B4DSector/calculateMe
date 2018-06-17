@@ -54,7 +54,7 @@ class Demands extends \yii\db\ActiveRecord
             'demand_id' => Yii::t('app', 'Demand ID'),
             'user_id' => Yii::t('app', 'User ID'),
             'contact_id' => Yii::t('app', 'Contact'),
-            'demand_amount' => Yii::t('app', 'Demand Amount'),
+            'demand_amount' => Yii::t('app', 'Demand Amount (Toman)'),
             'demand_date' => Yii::t('app', 'Demand Date'),
             'demand_description' => Yii::t('app', 'Demand Description'),
             'demand_tag_id' => Yii::t('app', 'Tag'),

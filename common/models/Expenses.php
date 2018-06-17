@@ -50,7 +50,7 @@ class Expenses extends \yii\db\ActiveRecord
         return [
             'expense_id' => Yii::t('app', 'Expense ID'),
             'user_id' => Yii::t('app', 'User ID'),
-            'expense_amount' => Yii::t('app', 'Expense Amount'),
+            'expense_amount' => Yii::t('app', 'Expense Amount (Toman)'),
             'expense_date' => Yii::t('app', 'Expense Date'),
             'expense_description' => Yii::t('app', 'Expense Description'),
             'expense_tag_id' => Yii::t('app', 'Tag'),

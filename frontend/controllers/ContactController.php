@@ -79,10 +79,24 @@ class ContactController extends Controller
             ],
         ]);
 
+        $debtModels = Debts::find()->where(['user_id' => Yii::$app->user->identity->id, 'contact_id' => $id])->all();
+        $demandModels = Demands::find()->where(['user_id' => Yii::$app->user->identity->id, 'contact_id' => $id])->all();
+
+        $dept = 0;
+        $demand = 0;
+        foreach($debtModels as $debtModel){
+            $dept += $debtModel->debt_amount;
+        }
+        foreach($demandModels as $demandModel){
+            $demand += $demandModel->demand_amount;
+        }
+        $total = $demand - $dept;
+
         return $this->render('view', [
             'model' => $this->findModel($id),
             'debtsDataProvider' => $debtsDataProvider,
             'demandsDataProvider' => $demandsDataProvider,
+            'total' => $total,
         ]);
     }
 
