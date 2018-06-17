@@ -9,6 +9,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\Debts;
+use common\models\Demands;
+use yii\data\ActiveDataProvider;
 
 /**
  * ContactController implements the CRUD actions for Contacts model.
@@ -63,8 +66,23 @@ class ContactController extends Controller
      */
     public function actionView($id)
     {
+        $debtsDataProvider = new ActiveDataProvider([
+            'query' => Debts::find()->where(['user_id' => Yii::$app->user->identity->id, 'contact_id' => $id]),
+            'pagination' => [
+                'pageSize' => 15,
+            ],
+        ]);
+        $demandsDataProvider = new ActiveDataProvider([
+            'query' => Demands::find()->where(['user_id' => Yii::$app->user->identity->id, 'contact_id' => $id]),
+            'pagination' => [
+                'pageSize' => 15,
+            ],
+        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'debtsDataProvider' => $debtsDataProvider,
+            'demandsDataProvider' => $demandsDataProvider,
         ]);
     }
 

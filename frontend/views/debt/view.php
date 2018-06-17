@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use common\models\Contacts;
+use common\models\Tags;
 /* @var $this yii\web\View */
 /* @var $model common\models\Debts */
 
@@ -30,11 +31,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             // 'debt_id',
             // 'user_id',
-            'contact_id',
+            [
+                'attribute' => 'contact_id',
+                'label' => 'Contact',
+                'value' => function($model){
+                    $name = Contacts::find()->select(['contact_firstname', 'contact_lastname'])->where(['user_id' => Yii::$app->user->identity->id,'contact_id' => $model->contact_id])->one();
+                    return $name->contact_firstname . " " . $name->contact_lastname;
+                }
+            ],
             'debt_amount',
             'debt_date',
             'debt_description:ntext',
-            'debt_tag_id',
+            [
+                'attribute' => 'debt_tag_id',
+                'label' => 'Tag',
+                'value' => function($model){
+                    $tag = Tags::find()->select(['tag_name'])->where(['user_id' => Yii::$app->user->identity->id,'tag_id' => $model->debt_tag_id])->one();
+                    return $tag->tag_name;
+                } 
+            ],
         ],
     ]) ?>
 
