@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Tags */
@@ -34,5 +35,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'tag_description:ntext',
         ],
     ]) ?>
+
+    <h1><?= Yii::t('app', 'Expenses') ?></h1>    
+    <?= GridView::widget([
+        'dataProvider' => $expenseDataProvider,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            //'expense_id',
+            //'user_id',
+            'expense_amount',
+            'expense_date',
+            'expense_description:ntext',
+
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'controller' => 'expense',
+            ],
+        ],
+    ]); ?>
 
 </div>

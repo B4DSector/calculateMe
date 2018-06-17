@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use common\models\Expenses;
+use yii\data\ActiveDataProvider;
 /**
  * TagController implements the CRUD actions for Tags model.
  */
@@ -62,8 +64,17 @@ class TagController extends Controller
      */
     public function actionView($id)
     {
+
+        $expenseDataProvider = new ActiveDataProvider([
+            'query' => Expenses::find()->where(['user_id' => Yii::$app->user->identity->id, 'expense_tag_id' => $id]),
+            'pagination' => [
+                'pageSize' => 15,
+            ],
+        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'expenseDataProvider' => $expenseDataProvider,
         ]);
     }
 
