@@ -24,6 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+
+        <?= Html::a(Yii::t('app', 'Delete and Add to Expenses'), ['delete-plus', 'id' => $model->debt_id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => Yii::t('app', 'Are you sure you want to delete this item and add it to expenses (it means you paid it!)?'),
+                'method' => 'post',
+            ],
+        ]) ?>
     </p>
 
     <?= DetailView::widget([

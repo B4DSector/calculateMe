@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use common\models\Expenses;
 
 /**
  * DebtController implements the CRUD actions for Debts model.
@@ -131,6 +132,24 @@ class DebtController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionDeletePlus($id)
+    {
+        $expenseModel = new Expenses();
+        $debtModel = $this->findModel($id);
+
+        $expenseModel->expense_amount = $debtModel->debt_amount;
+        $expenseModel->expense_date = date("Y-m-d");
+        $expenseModel->user_id = Yii::$app->user->identity->id;
+        $expenseModel->expense_description = "Paid : " . $debtModel->debt_description;
+        $expenseModel->expense_tag_id = $debtModel->debt_tag_id;
+
+        if($expenseModel->save()){
+            $debtModel->delete();
+        }
+        return $this->redirect(['index']);
+        
     }
 
     /**
