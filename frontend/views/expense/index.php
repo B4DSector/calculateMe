@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'expense_tag_id',
                 'label' => 'Tag',
                 'value' => function($model){
-                    $tag = Tags::find()->select(['tag_name'])->where(['user_id' => Yii::$app->user->identity->id,'tag_id' => $model->demand_tag_id])->one();
+                    $tag = Tags::find()->select(['tag_name'])->where(['user_id' => Yii::$app->user->identity->id,'tag_id' => $model->expense_tag_id])->one();
                     return $tag->tag_name;
                 } 
             ],
