@@ -80,11 +80,6 @@ class ExpenseController extends Controller
     {
         $model = $this->findModel($id);
 
-        
-        $date2 = Yii::$app->formatter->asTimestamp($model->expense_date);
-        $date1 = Yii::$app->formatter->asTimestamp(Yii::$app->jdate->date('Y-m-d'));
-        $diff = abs($date1 - $date2);
-        $model->expense_date = $diff / (60*60*24);
         return $this->render('view', [
             'model' => $model,
         ]);

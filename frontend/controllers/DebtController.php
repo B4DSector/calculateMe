@@ -120,6 +120,7 @@ class DebtController extends Controller
         ]);
     }
 
+
     /**
      * Deletes an existing Debts model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -138,9 +139,8 @@ class DebtController extends Controller
     {
         $expenseModel = new Expenses();
         $debtModel = $this->findModel($id);
-
         $expenseModel->expense_amount = $debtModel->debt_amount;
-        $expenseModel->expense_date = date("Y-m-d");
+        $expenseModel->expense_date = Yii::$app->jdate->date('Y-m-d');
         $expenseModel->user_id = Yii::$app->user->identity->id;
         $expenseModel->expense_description = "Paid : " . $debtModel->debt_description;
         $expenseModel->expense_tag_id = $debtModel->debt_tag_id;
