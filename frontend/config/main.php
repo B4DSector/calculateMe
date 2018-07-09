@@ -12,6 +12,9 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'jdate' => [
+            'class' => 'jDate\DateTime'
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

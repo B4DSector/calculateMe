@@ -45,12 +45,26 @@ class ExpenseController extends Controller
      */
     public function actionIndex()
     {
+
+        $models = Expenses::find()->where(['user_id' => Yii::$app->user->identity->id])->orderBy(['expense_date' => SORT_DESC])->all();
+        $date1 = new \DateTime(Yii::$app->jdate->date('Y-m-d'));
+        $total = 0;
+        foreach($models as $model){
+            $date2 = new \DateTime($model->expense_date);
+            if($date1->diff($date2)->format("%a") <= 31){
+                $total += $model->expense_amount;
+            }
+            
+            
+            // echo (string)$date1->diff($date2);
+            
+        }
         $searchModel = new SearchExpenses();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'amount' => $total,
         ]);
     }
 
@@ -61,9 +75,18 @@ class ExpenseController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
+
+
     {
+        $model = $this->findModel($id);
+
+        
+        $date2 = Yii::$app->formatter->asTimestamp($model->expense_date);
+        $date1 = Yii::$app->formatter->asTimestamp(Yii::$app->jdate->date('Y-m-d'));
+        $diff = abs($date1 - $date2);
+        $model->expense_date = $diff / (60*60*24);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 
