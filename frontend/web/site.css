@@ -28,6 +28,6 @@
     font-weight: normal;
     src: url('../fonts/IRANSansWeb.ttf') format('truetype');  /* All Major Browsers */
 }
-*:NOT(i):NOT(span){
+*:NOT(i):NOT(span):NOT(.no-font-cause-icon){
     font-family : "IranSans" !important;
 }

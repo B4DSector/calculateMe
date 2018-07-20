@@ -47,4 +47,9 @@ return [
     'Signup' => 'ثبت نام',
     'Remember Me' => 'من را به یاد داشته باش',
     'Email' => 'ایمیل',
+    'Search...' => 'جستجو...',
+    'Main Navigation' => 'منوی اصلی',
+    'Online' => 'آنلاین',
+    'Profile' => 'پروفایل',
+    'Sign out' => 'خروج',
 ];

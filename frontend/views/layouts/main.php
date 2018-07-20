@@ -63,7 +63,7 @@ AppAsset::register($this);
 
         <nav class="navbar navbar-static-top">
             <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <a href="#" class="sidebar-toggle no-font-cause-icon" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
 
@@ -286,35 +286,35 @@ AppAsset::register($this);
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="UI">
+                                    <img src="<?= Yii::$app->request->baseUrl . "/web/dist/img/user2-160x160.jpg"?>" class="img-circle" alt="UI">
 
                                     <p>
-                                        Alexander Pierce - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                        <?php echo Yii::$app->user->identity->username; ?>
+                                        <small><?php echo Yii::$app->formatter->asDate(Yii::$app->user->identity->created_at,'long') ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </div>
+<!--                                <li class="user-body">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-xs-4 text-center">-->
+<!--                                            <a href="#">Followers</a>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-xs-4 text-center">-->
+<!--                                            <a href="#">Sales</a>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-xs-4 text-center">-->
+<!--                                            <a href="#">Friends</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <!-- /.row -->
-                                </li>
+<!--                                </li>-->
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="#" class="btn btn-default btn-flat"><?php echo Yii::t('app','Profile') ?></a>
                                     </div>
                                     <div class="pull-right">
-                                        <a method="POST" href="/site/logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a method="POST" href="/site/logout" class="btn btn-default btn-flat"><?php echo Yii::t('app','Sign out') ?></a>
                                     </div>
                                 </li>
                             </ul>
@@ -340,13 +340,13 @@ AppAsset::register($this);
                     </div>
                     <div class="pull-left info">
                         <p><?php echo Yii::$app->user->identity->username; ?></p>
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        <a href="#"><i class="fa fa-circle text-success"></i> <?php echo Yii::t('app','Online') ?></a>
                     </div>
                 </div>
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <input type="text" name="q" class="form-control" placeholder="<?php echo Yii::t('app', 'Search...') ?>">
                         <span class="input-group-btn">
                     <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                     </button>
@@ -357,7 +357,7 @@ AppAsset::register($this);
             <?php endif; ?>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header"><?php echo Yii::t('app','Main Navigation') ?></li>
                 <?php if(!Yii::$app->user->isGuest) : ?>
                     <li class="treeview">
                         <a href="#">
@@ -386,7 +386,7 @@ AppAsset::register($this);
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-usd"></i>
+                            <i class="fa fa-usd" style="position:relative;right: 4px;"></i>
                             <span><?= Yii::t('app', 'Expenses') ?></span>
                             <span class="pull-right-container">
                               <i class="fa fa-angle-left pull-right"></i>
