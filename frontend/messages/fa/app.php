@@ -43,4 +43,8 @@ return [
     'Delete and Add to Expenses' => 'حذف و اضافه کردن به خرج ها',
     'Total' => 'جمع',
     '(Toman)' => '(تومان)',
+    'Reset it' => 'تغییر دهید',
+    'Signup' => 'ثبت نام',
+    'Remember Me' => 'من را به یاد داشته باش',
+    'Email' => 'ایمیل',
 ];
