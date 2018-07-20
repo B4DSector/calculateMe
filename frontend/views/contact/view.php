@@ -64,6 +64,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'controller' => 'debt',
             ],
         ],
+        'options'=>[
+            'class' => 'table table-bordered table-hover dataTable',
+        ]
     ]); ?>
     <br/>
     <h1><?= Yii::t('app', 'Demands') ?></h1>
@@ -90,6 +93,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'controller' => 'demand',
             ],
         ],
+        'options'=>[
+            'class' => 'table table-bordered table-hover dataTable',
+        ]
     ]); ?>
 
     <br/>

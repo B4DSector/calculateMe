@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="contacts-form">
+<div class="contacts-form col-md-6">
 
     <?php $form = ActiveForm::begin(); ?>
 

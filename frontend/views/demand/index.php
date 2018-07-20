@@ -49,7 +49,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 } 
             ],
             ['class' => 'yii\grid\ActionColumn'],
+            'options'=>[
+                'class' => 'table table-bordered table-hover dataTable',
+            ]
         ],
+        'options'=>[
+            'class' => 'table table-bordered table-hover dataTable',
+        ]
     ]); ?>
 
     <br/>

@@ -10,7 +10,7 @@ use faravaghi\jalaliDatePicker\jalaliDatePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="expenses-form">
+<div class="expenses-form col-md-6">
 
     <?php $form = ActiveForm::begin(); ?>
 

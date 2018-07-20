@@ -34,7 +34,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'contact_phone_number',
 
             ['class' => 'yii\grid\ActionColumn'],
+
         ],
+        'options'=>[
+            'class' => 'table table-bordered table-hover dataTable',
+        ]
     ]); ?>
     
 </div>

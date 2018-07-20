@@ -11,7 +11,7 @@ use faravaghi\jalaliDatePicker\jalaliDatePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="demands-form">
+<div class="demands-form col-md-6">
 
     <?php $form = ActiveForm::begin(); ?>
 

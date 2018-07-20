@@ -12,7 +12,7 @@ use faravaghi\jalaliDatePicker\jalaliDatePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="debts-form">
+<div class="debts-form col-md-6">
 
     <?php $form = ActiveForm::begin(); ?>
 
