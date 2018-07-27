@@ -24,6 +24,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'demand_amount') ?>
 
     <?= $form->field($model, 'demand_date') ?>
+
+    <?= $form->field($model, 'demand_ttg') ?>
     <!-- Qu: What is this for? Comment or not comment no difference!!! -->
     <?php echo $form->field($model, 'demand_description') ?>
 

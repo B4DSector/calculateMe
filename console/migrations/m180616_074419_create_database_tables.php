@@ -38,6 +38,7 @@ class m180616_074419_create_database_tables extends Migration
             'contact_id' => $this->integer()->notNull(),
             'debt_amount' => $this->integer()->notNull(),
             'debt_date' => $this->date()->notNull(),
+            'debt_ttp' => $this->date(),
             'debt_description' => $this->text()->notNull(),
             'debt_tag_id' => $this->integer()->notNull(),
         ]);
@@ -51,6 +52,7 @@ class m180616_074419_create_database_tables extends Migration
             'contact_id' => $this->integer()->notNull(),
             'demand_amount' => $this->integer()->notNull(),
             'demand_date' => $this->date()->notNull(),
+            'debt_ttg' => $this->date(),
             'demand_description' => $this->text()->notNull(),
             'demand_tag_id' => $this->integer()->notNull(),
         ]);

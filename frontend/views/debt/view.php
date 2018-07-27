@@ -49,6 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'debt_amount',
             'debt_date',
+            'debt_ttp',
             'debt_description:ntext',
             [
                 'attribute' => 'debt_tag_id',

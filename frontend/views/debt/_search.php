@@ -25,6 +25,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'debt_date') ?>
 
+    <?= $form->field($model, 'debt_ttp') ?>
+
     <?php  echo $form->field($model, 'debt_description') ?>
 
     <?php  echo $form->field($model, 'debt_tag_id') ?>

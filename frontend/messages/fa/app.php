@@ -52,4 +52,6 @@ return [
     'Online' => 'آنلاین',
     'Profile' => 'پروفایل',
     'Sign out' => 'خروج',
+    'Time to Pay Date' => 'زمان پرداخت',
+    'Time to Get Date' => 'زمان دریافت',
 ];

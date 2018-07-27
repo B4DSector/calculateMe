@@ -40,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'demand_amount',
             'demand_date',
+            'demand_ttg',
             'demand_description:ntext',
             [
                 'attribute' => 'demand_tag_id',

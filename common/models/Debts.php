@@ -12,6 +12,7 @@ use Yii;
  * @property int $contact_id
  * @property int $debt_amount
  * @property string $debt_date
+ * @property string $debt_ttp
  * @property string $debt_description
  * @property int $debt_tag_id
  *
@@ -37,7 +38,7 @@ class Debts extends \yii\db\ActiveRecord
         return [
             [['contact_id', 'debt_amount', 'debt_date', 'debt_description', 'debt_tag_id'], 'required'],
             [['user_id', 'contact_id', 'debt_amount', 'debt_tag_id'], 'integer'],
-            [['debt_date'], 'safe'],
+            [['debt_date','debt_ttp'], 'safe'],
             [['debt_description'], 'string'],
             [['contact_id'], 'exist', 'skipOnError' => true, 'targetClass' => Contacts::className(), 'targetAttribute' => ['contact_id' => 'contact_id']],
             [['debt_tag_id'], 'exist', 'skipOnError' => true, 'targetClass' => Tags::className(), 'targetAttribute' => ['debt_tag_id' => 'tag_id']],
@@ -56,6 +57,7 @@ class Debts extends \yii\db\ActiveRecord
             'contact_id' => Yii::t('app', 'Contact'),
             'debt_amount' => Yii::t('app', 'Debt Amount (Toman)'),
             'debt_date' => Yii::t('app', 'Debt Date'),
+            'debt_ttp' => Yii::t('app', 'Time to Pay Date'),
             'debt_description' => Yii::t('app', 'Debt Description'),
             'debt_tag_id' => Yii::t('app', 'Tag'),
         ];

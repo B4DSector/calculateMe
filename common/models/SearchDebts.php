@@ -19,7 +19,7 @@ class SearchDebts extends Debts
     {
         return [
             [['debt_id', 'user_id', 'contact_id', 'debt_amount', 'debt_tag_id'], 'integer'],
-            [['debt_date', 'debt_description'], 'safe'],
+            [['debt_date', 'debt_ttp', 'debt_description'], 'safe'],
         ];
     }
 
@@ -64,6 +64,7 @@ class SearchDebts extends Debts
             // 'contact_id' => $this->contact_id,
             'debt_amount' => $this->debt_amount,
             'debt_date' => $this->debt_date,
+            'debt_ttp' => $this->debt_ttp,
             'debt_tag_id' => $this->debt_tag_id,
         ]);
 

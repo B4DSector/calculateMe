@@ -19,7 +19,7 @@ class SearchDemands extends Demands
     {
         return [
             [['demand_id', 'user_id', 'contact_id', 'demand_amount', 'demand_tag_id'], 'integer'],
-            [['demand_date', 'demand_description'], 'safe'],
+            [['demand_date', 'demand_ttg', 'demand_description'], 'safe'],
         ];
     }
 
@@ -61,9 +61,10 @@ class SearchDemands extends Demands
         $query->andFilterWhere([
             // 'demand_id' => $this->demand_id,
             // 'user_id' => $this->user_id,
-            'contact_id' => $this->contact_id,
+            //'contact_id' => $this->contact_id,
             'demand_amount' => $this->demand_amount,
             'demand_date' => $this->demand_date,
+            'demand_ttg' => $this->demand_ttg,
             'demand_tag_id' => $this->demand_tag_id,
         ]);
 

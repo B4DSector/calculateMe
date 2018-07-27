@@ -12,6 +12,7 @@ use Yii;
  * @property int $contact_id
  * @property int $demand_amount
  * @property string $demand_date
+ * @property string $demand_ttg
  * @property string $demand_description
  * @property int $demand_tag_id
  *
@@ -37,7 +38,7 @@ class Demands extends \yii\db\ActiveRecord
         return [
             [['contact_id', 'demand_amount', 'demand_date', 'demand_description', 'demand_tag_id'], 'required'],
             [['user_id', 'contact_id', 'demand_amount', 'demand_tag_id'], 'integer'],
-            [['demand_date'], 'safe'],
+            [['demand_date','demand_ttg'], 'safe'],
             [['demand_description'], 'string'],
             [['contact_id'], 'exist', 'skipOnError' => true, 'targetClass' => Contacts::className(), 'targetAttribute' => ['contact_id' => 'contact_id']],
             [['demand_tag_id'], 'exist', 'skipOnError' => true, 'targetClass' => Tags::className(), 'targetAttribute' => ['demand_tag_id' => 'tag_id']],
@@ -56,6 +57,7 @@ class Demands extends \yii\db\ActiveRecord
             'contact_id' => Yii::t('app', 'Contact'),
             'demand_amount' => Yii::t('app', 'Demand Amount (Toman)'),
             'demand_date' => Yii::t('app', 'Demand Date'),
+            'demand_ttg' => Yii::t('app', 'Time to Get Date'),
             'demand_description' => Yii::t('app', 'Demand Description'),
             'demand_tag_id' => Yii::t('app', 'Tag'),
         ];

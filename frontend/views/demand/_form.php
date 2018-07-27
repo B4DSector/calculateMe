@@ -37,6 +37,20 @@ use faravaghi\jalaliDatePicker\jalaliDatePicker;
 		]
 	]);?>
 
+    <?= $form->field($model, 'demand_ttg')->widget(
+        jalaliDatePicker::className(), [
+        'options' => array(
+            'format' => 'yyyy-mm-dd',
+            'viewformat' => 'yyyy/mm/dd',
+            'placement' => 'left',
+            'todayBtn'=> 'linked',
+        ),
+        'htmlOptions' => [
+            'id' => 'ttg-date',
+            'class'	=> 'form-control'
+        ]
+    ]);?>
+
     <?= $form->field($model, 'demand_description')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'demand_tag_id')->dropDownList(ArrayHelper::map(Tags::find()

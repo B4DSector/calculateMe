@@ -39,6 +39,20 @@ use faravaghi\jalaliDatePicker\jalaliDatePicker;
 		]
 	]);?>
 
+    <?= $form->field($model, 'debt_ttp')->widget(
+        jalaliDatePicker::className(), [
+        'options' => array(
+            'format' => 'yyyy-mm-dd',
+            'viewformat' => 'yyyy/mm/dd',
+            'placement' => 'left',
+            'todayBtn'=> 'linked',
+        ),
+        'htmlOptions' => [
+            'id' => 'ttp-date',
+            'class'	=> 'form-control'
+        ]
+    ]);?>
+
     <?= $form->field($model, 'debt_description')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'debt_tag_id')->dropDownList(ArrayHelper::map(Tags::find()
